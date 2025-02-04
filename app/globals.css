@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode (default) */
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+/* Dark mode */
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+/* Apply background and text colors */
+body {
+  @apply dark:bg-background bg-foreground text-foreground transition-colors duration-300;
+}
+
+/* Hero Section */
+section {
+  @apply flex items-center justify-center min-h-screen bg-background text-foreground px-4 py-16 relative;
+}
+
+/* CTA Button Styling */
+.cta-button {
+  @apply text-white font-medium px-4 py-2 rounded-md;
+  background: linear-gradient(180deg, rgba(68, 133, 255, 0.8) 0%, #377DFF 100%);
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: linear-gradient(180deg, rgba(50, 115, 255, 0.9) 0%, #2478F2 100%);
+  transform: scale(1.05);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* Add this to your global CSS or in a <style> block in your component */
+
+.dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveDots 10s infinite ease-in-out;
+}
+
+.red-1 {
+  background-color: #FF0000;
+  left: 10%;
+  top: 20%;
+  animation-delay: 1s;
+}
+
+.blue-1 {
+  background-color: #0000FF;
+  left: 50%;
+  top: 30%;
+  animation-delay: 2s;
+}
+
+.white-1 {
+  background-color: #FFFFFF;
+  left: 70%;
+  top: 10%;
+  animation-delay: 3s;
+}
+
+.red-2 {
+  background-color: #FF0000;
+  left: 25%;
+  top: 60%;
+  animation-delay: 4s;
+}
+
+.blue-2 {
+  background-color: #0000FF;
+  left: 75%;
+  top: 50%;
+  animation-delay: 5s;
+}
+
+.white-2 {
+  background-color: #FFFFFF;
+  left: 40%;
+  top: 80%;
+  animation-delay: 6s;
+}
+
+.red-3 {
+  background-color: #FF0000;
+  left: 60%;
+  top: 20%;
+  animation-delay: 7s;
+}
+
+.blue-3 {
+  background-color: #0000FF;
+  left: 80%;
+  top: 70%;
+  animation-delay: 8s;
+}
+
+.white-3 {
+  background-color: #FFFFFF;
+  left: 20%;
+  top: 40%;
+  animation-delay: 9s;
+}
+
+@keyframes moveDots {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(20px, 20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
