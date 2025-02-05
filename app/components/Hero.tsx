@@ -60,7 +60,11 @@ const Hero = () => {
                     height={600}
                     src="/images/hero.jpg"
                     alt="Background Image"
-                    className="rounded-md drop-shadow-xl mx-auto"
+                    className="rounded-md drop-shadow-xl mx-auto transition-all duration-700"
+                    onLoad={(event) => {
+                        const img = event.target as HTMLImageElement;
+                        img.classList.add('opacity-100');
+                    }}
                 />
 
                 {/* Pagination Dots (Top-Left & Bottom-Left) */}
@@ -94,7 +98,7 @@ const Hero = () => {
 
                 {/* Text Component (Top-Left) */}
                 <motion.div
-                   
+
                 >
                     <HeroTextCounter />
                 </motion.div>

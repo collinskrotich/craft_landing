@@ -1,4 +1,5 @@
-// app/not-found.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,11 @@ const NotFound = () => {
                 alt="Lost Astronaut"
                 width={400}
                 height={300}
-                className="mb-6"
+                className="mb-6 transition-all duration-700"
+                onLoad={(event) => {
+                    const img = event.target as HTMLImageElement;
+                    img.classList.add('opacity-100');
+                }}
             />
 
             {/* Title & Funny Message */}

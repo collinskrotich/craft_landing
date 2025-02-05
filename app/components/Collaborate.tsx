@@ -40,7 +40,11 @@ const Collaborate = () => {
                             alt="Image 2"
                             width={400}
                             height={300}
-                            className="rounded-xl shadow-lg object-cover"
+                            className="rounded-xl shadow-lg object-cover transition-all duration-700"
+                            onLoad={(event) => {
+                                const img = event.target as HTMLImageElement;
+                                img.classList.add('opacity-100');
+                            }}
                         />
                     </div>
 
@@ -51,7 +55,7 @@ const Collaborate = () => {
                             alt="Image 1"
                             width={400}
                             height={300}
-                            className="rounded-xl shadow-lg object-cover"
+                            className="rounded-xl shadow-lg object-cover transition-all duration-700"
                         />
                     </div>
                 </div>

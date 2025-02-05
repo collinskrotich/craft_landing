@@ -100,7 +100,11 @@ const InfiniteTestimonialSlider = () => {
                                         fill
                                         src={testimonial.avatar}
                                         alt={testimonial.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition-all duration-700"
+                                        onLoad={(event) => {
+                                            const img = event.target as HTMLImageElement;
+                                            img.classList.add('opacity-100');
+                                        }}
                                     />
                                 </div>
 

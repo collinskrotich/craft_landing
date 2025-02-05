@@ -32,6 +32,11 @@ const Footer = () => {
                                     alt="Logo"
                                     width={180}
                                     height={60}
+                                    className="transition-all duration-700 hover:scale-105"
+                                    onLoad={(event) => {
+                                        const img = event.target as HTMLImageElement;
+                                        img.classList.add('opacity-100');
+                                    }}
                                 />
                             )}
                         </Link>

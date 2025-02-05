@@ -95,7 +95,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     alt={project.title}
                     width={500}
                     height={300}
-                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-700"
+                    onLoad={(event) => {
+                        const img = event.target as HTMLImageElement;
+                        img.classList.add('opacity-100');
+                    }}
                 />
             </div>
 

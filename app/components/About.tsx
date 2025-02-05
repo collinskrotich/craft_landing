@@ -79,7 +79,11 @@ const About = () => {
                             alt="About Us"
                             width={700}
                             height={700}
-                            className="rounded-lg shadow-2xl object-cover"
+                            className="rounded-lg shadow-2xl object-cover transition-all duration-700"
+                            onLoad={(event) => {
+                                const img = event.target as HTMLImageElement;
+                                img.classList.add('opacity-100');
+                            }}
                         />
                     </div>
                 </motion.div>
