@@ -13,9 +13,7 @@ const Footer = () => {
 
     useEffect(() => {
         setMounted(true);
-
         if (typeof window === "undefined") return;
-
     }, []);
 
     return (
@@ -33,10 +31,6 @@ const Footer = () => {
                                     width={180}
                                     height={60}
                                     className="transition-all duration-700 hover:scale-105"
-                                    onLoad={(event) => {
-                                        const img = event.target as HTMLImageElement;
-                                        img.classList.add('opacity-100');
-                                    }}
                                 />
                             )}
                         </Link>
@@ -44,80 +38,78 @@ const Footer = () => {
 
                     {/* Column 2: Navigation Links */}
                     <div className="text-white">
-                        <h3 className="text-xl  font-semibold">Terms & Policies</h3>
+                        <h3 className="text-xl font-semibold">Terms & Policies</h3>
                         <div className="mt-4 space-y-2 flex flex-col">
-                            <Link href="/" className="hover:text-blue-400 transition duration-300 ease-in-out cursor-pointer">Terms & Conditions</Link>
-                            <Link href="/" className="hover:text-blue-400 transition duration-300 ease-in-out cursor-pointer">Privacy Policy</Link>
+                            <Link href="/" className="hover:text-blue-400 transition duration-300 ease-in-out">Terms & Conditions</Link>
+                            <Link href="/" className="hover:text-blue-400 transition duration-300 ease-in-out">Privacy Policy</Link>
                         </div>
                     </div>
 
-                    {/* Column 3: Navigation Links */}
+                    {/* Column 3: Company */}
                     <div className="text-white">
                         <h3 className="text-xl font-semibold">Company</h3>
                         <div className="mt-4 flex flex-col space-y-2">
-                            {
-                                quickLinks.map(({ id, label, href }) => {
-                                    return (
-                                        <Link key={id} href={href} className="hover:text-blue-500 transition-colors ease-in-out cursor-pointer duration-300">
-                                            {label}
-                                        </Link>
-                                    )
-                                })
-                            }
+                            {quickLinks.map(({ id, label, href }) => (
+                                <Link key={id} href={href} className="hover:text-blue-500 transition-colors duration-300">
+                                    {label}
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
                     {/* Column 4: Contact */}
                     <div className="text-white">
-                        <h3 className="text-xl font-semibold ">Contact</h3>
+                        <h3 className="text-xl font-semibold">Contact</h3>
                         <div className="mt-4 flex flex-col space-y-2">
-                            <Link href="tel:0745882265" className="hover:text-blue-400 transition duration-300 ease-in-out cursor-pointer">+254 745 882265</Link>
-                            <Link href="mailto:info@craftduka.com" className="hover:text-blue-400 transition duration-300 ease-in-out cursor-pointer">info@craftduka.com</Link>
+                            <Link href="tel:0745882265" className="hover:text-blue-400 transition duration-300">+254 745 882265</Link>
+                            <Link href="mailto:info@craftduka.com" className="hover:text-blue-400 transition duration-300">info@craftduka.com</Link>
                         </div>
                     </div>
 
                     {/* Column 5: Location */}
                     <div className="text-white">
                         <h3 className="text-xl font-semibold">Location</h3>
-                        <div className="mt-4 space-y-2">
-                            <span className="text-lg ">Nairobi, Kenya</span>
-
+                        <div className="mt-4">
+                            <span className="text-lg">Nairobi, Kenya</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-8">
-                    <div className="mt-4 flex justify-center space-x-4">
-                        {
-                            socialMediaIcons.map(({ id, text, url, handle }) => {
-                                return (
-                                    <Link href={url} key={id} className="relative flex flex-col items-center gap-1 group">
-                                        {
-                                            text === 'LinkedIn'
-                                                ? <FaLinkedin />
-                                                : text === 'Instagram'
-                                                    ? <FaInstagram />
-                                                    : text === 'Facebook'
-                                                        ? <FaFacebook />
-                                                        : text === 'Twitter'
-                                                            ? <FaXTwitter />
-                                                            : <FaGithub />
-                                        }
-                                        <span className="hidden text-center absolute group-hover:-translate-y-8 group-hover:transition-transform group-hover:flex z-10 duration-500 ease-in-out">
-                                            {handle}
-                                        </span>
-                                    </Link>
-                                )
-                            })
-                        }
+                {/* Social Media Icons */}
+                <div className="mt-8 flex justify-center space-x-6">
+                    {socialMediaIcons.map(({ id, text, url, handle }) => {
+                        const Icon =
+                            text === "LinkedIn" ? FaLinkedin :
+                                text === "Instagram" ? FaInstagram :
+                                    text === "Facebook" ? FaFacebook :
+                                        text === "Twitter" ? FaXTwitter : FaGithub;
 
-                    </div>
-                    {/* Copyright Section */}
-                    <div className="border-t border-gray-700 mt-4 pt-2 text-center">
-                        <p className="text-gray-500">
-                            &copy; {new Date().getFullYear()} CraftDuka Digital. All rights reserved.
-                        </p>
-                    </div>
+                        return (
+                            <Link
+                                key={id}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="relative group text-gray-400 hover:text-white transition duration-300"
+                            >
+                                <div className="p-3 bg-gray-800 rounded-full hover:bg-blue-600 transition-transform transform hover:scale-110 duration-300">
+                                    <Icon className="text-2xl" />
+                                </div>
+
+                                {/* Tooltip with Animation */}
+                                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">
+                                    {handle}
+                                </span>
+                            </Link>
+                        );
+                    })}
+                </div>
+
+                {/* Copyright Section */}
+                <div className="border-t border-gray-700 mt-6 pt-2 text-center">
+                    <p className="text-gray-500">
+                        &copy; {new Date().getFullYear()} CraftDuka Digital. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>

@@ -8,21 +8,35 @@ interface Blob {
     size: string;
     opacity: number;
     animationDelay: string;
+    blur: string;
+    borderRadius: string;
+    color: string;
 }
 
 export default function BlobComponent() {
     const [blobPositions, setBlobPositions] = useState<Blob[]>([]);
 
     useEffect(() => {
+        console.log("✅ BlobComponent is rendering..."); // Debugging
+
         const generateRandomBlobs = () => {
             const blobs: Blob[] = [];
-            for (let i = 0; i < 6; i++) { // Increased number of blobs
+            const colors = [
+                "rgba(0, 162, 255, 0.6)", // Neon Blue
+                "rgba(91, 33, 182, 0.5)", // Techy Purple
+                "rgba(0, 201, 167, 0.5)", // Futuristic Teal
+            ];
+
+            for (let i = 0; i < 8; i++) {
                 const blob: Blob = {
-                    left: Math.random() * 100 + "%",
-                    top: Math.random() * 100 + "%",
-                    size: Math.random() * 50 + 10 + "px", // Increased size variation
-                    opacity: Math.random() * 0.6 + 0.4,
-                    animationDelay: Math.random() * 5 + "s",
+                    left: Math.random() * 90 + "%",
+                    top: Math.random() * 90 + "%",
+                    size: Math.random() * 80 + 20 + "px",
+                    opacity: Math.random() * 0.4 + 0.3,
+                    animationDelay: Math.random() * 3 + "s",
+                    blur: Math.random() * 10 + 10 + "px",
+                    borderRadius: Math.random() > 0.5 ? "50%" : "40% 60% 60% 40%",
+                    color: colors[Math.floor(Math.random() * colors.length)],
                 };
                 blobs.push(blob);
             }
@@ -33,24 +47,21 @@ export default function BlobComponent() {
     }, []);
 
     return (
-        <div
-            className="absolute top-0 left-0 w-full h-full opacity-40 dark:opacity-30"
-            style={{
-                zIndex: 0, // Make sure it stays behind other content
-                pointerEvents: "none", // Prevent blobs from blocking interaction
-            }}
-        >
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
             {blobPositions.map((blob, index) => (
                 <div
                     key={index}
-                    className="absolute bg-blue-500 rounded-full"
+                    className="absolute animate-blob"
                     style={{
                         left: blob.left,
                         top: blob.top,
                         width: blob.size,
                         height: blob.size,
+                        background: blob.color,
                         opacity: blob.opacity,
-                        animation: `blob-animation 6s infinite ${blob.animationDelay} ease-in-out`,
+                        borderRadius: blob.borderRadius,
+                        filter: `blur(${blob.blur})`,
+                        animationDelay: blob.animationDelay,
                     }}
                 />
             ))}
