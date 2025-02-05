@@ -4,37 +4,9 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import BlobComponent from "./Blob";
+import { testimonials } from "@/data/data";
 
-const testimonials = [
-    {
-        id: 1,
-        name: "John Doe",
-        username: "@johndoe",
-        avatar: "/images/avatar-male.jpg",
-        comment: "Amazing service! They helped us grow our business exponentially. Highly recommended! 🚀",
-    },
-    {
-        id: 2,
-        name: "Jane Smith",
-        username: "@janesmith",
-        avatar: "/images/avatar-female.jpg",
-        comment: "The team is incredibly professional and creative. Our website looks stunning! 💯",
-    },
-    {
-        id: 3,
-        name: "Alice Johnson",
-        username: "@alicej",
-        avatar: "/images/avatar-female.jpg",
-        comment: "Their SEO strategies boosted our traffic by 200% in just 3 months. Absolutely brilliant! 👏",
-    },
-    {
-        id: 4,
-        name: "Bob Brown",
-        username: "@bobbrown",
-        avatar: "/images/avatar-male.jpg",
-        comment: "Fantastic experience from start to finish. They truly care about their clients. 🌟",
-    },
-];
+
 
 const InfiniteTestimonialSlider = () => {
     const [sliderWidth, setSliderWidth] = useState(0);

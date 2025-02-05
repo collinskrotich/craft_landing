@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link as ScrollLink } from "react-scroll";
+import { Link, Link as ScrollLink } from "react-scroll";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import Image from "next/image";
 
@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="container mx-auto flex justify-between items-center px-2">
                 {/* Logo */}
                 <div className="text-xl font-bold cursor-pointer">
-                    <ScrollLink to="home" smooth={true} duration={800} offset={-80}>
+                    <Link to="home" smooth={true} duration={800} offset={-80}>
                         {mounted && (
                             <Image
                                 src={theme === "dark" ? "/images/logo-dark.png" : "/images/logo-light.png"}
@@ -43,7 +43,7 @@ const Navbar = () => {
                                 height={40}
                             />
                         )}
-                    </ScrollLink>
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation */}

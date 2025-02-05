@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import BlobComponent from "./Blob";
 
 const Collaborate = () => {
     return (
-        <section className="relative py-8">
+        <section className="relative py-8 overflow-hidden">
             <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
                 {/* Text Section */}
                 <motion.div
@@ -55,6 +56,23 @@ const Collaborate = () => {
                     </div>
                 </div>
             </div>
+            {/* Blob Component */}
+            <BlobComponent />
+
+            {/* Blob Animation Styles */}
+            <style jsx>{`
+                    @keyframes blob-animation {
+                      0% {
+                        transform: scale(1) translate(0, 0);
+                      }
+                      50% {
+                        transform: scale(1.5) translate(10px, 10px);
+                      }
+                      100% {
+                        transform: scale(1) translate(0, 0);
+                      }
+                    }
+                  `}</style>
         </section>
     );
 };
