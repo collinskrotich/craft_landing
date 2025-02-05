@@ -1,57 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Light mode (default) */
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
-}
 
 /* Dark mode */
 .dark {
-  --background: #000000;
+  --background: #0B0F15;
   --foreground: #ffffff;
 }
 
-/* Apply background and text colors */
+/* Light mode (default) */
+:root {
+  --background: #ffffff;
+  --foreground: #0B0F15;
+}
+
+
+
 body {
-  @apply dark:bg-background bg-foreground text-foreground transition-colors duration-300;
+  font-family: "Nunito", serif;
+  background-color: var(--background);
+  /* Use the CSS variable */
+  color: var(--foreground);
+  /* Use the CSS variable */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  /* Smooth transition */
 }
 
-/* Hero Section */
-section {
-  @apply flex items-center justify-center min-h-screen bg-background text-foreground px-4 py-16 relative;
+
+.hero-text {
+  font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-size: 32px;
+  /* Default for mobile */
+  font-weight: 800;
+  line-height: 42px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
-/* CTA Button Styling */
-.cta-button {
-  @apply text-white font-medium px-4 py-2 rounded-md;
-  background: linear-gradient(180deg, rgba(68, 133, 255, 0.8) 0%, #377DFF 100%);
-  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.cta-button:hover {
-  background: linear-gradient(180deg, rgba(50, 115, 255, 0.9) 0%, #2478F2 100%);
-  transform: scale(1.05);
-}
-
-.cta-button:active {
-  transform: scale(0.98);
-}
-
-@keyframes blob-animation {
-
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-
-  50% {
-    transform: translateY(-20px) scale(1.1);
+/* Adjust for tablets */
+@media (min-width: 640px) {
+  .hero-text {
+    font-size: 48px;
+    line-height: 64px;
   }
 }
 
-.animate-blob {
-  animation: blob-animation 6s infinite ease-in-out alternate;
+/* Adjust for desktops */
+@media (min-width: 1024px) {
+  .hero-text {
+    font-size: 64px;
+    line-height: 87.3px;
+  }
+}
+
+.hero-p {
+  font-family: "Nunito", serif;
+  font-size: 16px;
+  /* Default for mobile */
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+/* Adjust for tablets */
+@media (min-width: 640px) {
+  .hero-p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+/* Adjust for desktops */
+@media (min-width: 1024px) {
+  .hero-p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+
+/* Hide scrollbar by default */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  /* Makes it invisible */
+}
+
+/* Show scrollbar on scroll */
+.scroll-container:hover::-webkit-scrollbar-thumb {
+  background: #377DFF;
+  /* Blue scrollbar */
+}
+
+/* Smooth transition effect */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hide track unless scrolling */
+.scroll-container::-webkit-scrollbar-track {
+  background: transparent;
 }

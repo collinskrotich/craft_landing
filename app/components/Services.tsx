@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import BlobComponent from "./Blob";
 import { Code, Lightbulb, Paintbrush, Server } from "lucide-react";
 
 const Services = () => {
@@ -115,16 +114,7 @@ const Services = () => {
                 ))}
             </div>
 
-            {/* Random Blobs */}
-            <BlobComponent />
-
-            {/* Custom CSS for Service Card Hover Effect */}
-            <style jsx>{`
-        .service-card:hover {
-          transform: translateY(-10px) rotate(2deg);
-          box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
+          
         </section>
     );
 };

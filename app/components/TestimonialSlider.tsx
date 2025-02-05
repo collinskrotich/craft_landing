@@ -3,7 +3,6 @@
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import BlobComponent from "./Blob";
 import { testimonials } from "@/data/data";
 
 
@@ -126,23 +125,6 @@ const InfiniteTestimonialSlider = () => {
                 </div>
             </div>
 
-            {/* Blob Component */}
-            <BlobComponent />
-
-            {/* Animation Styles */}
-            <style jsx>{`
-                @keyframes blob-animation {
-                    0% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                    50% {
-                        transform: scale(1.5) translate(10px, 10px);
-                    }
-                    100% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                }
-            `}</style>
         </section>
     );
 };

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { projectsData } from "@/data/data";
 import Image from "next/image";
-import BlobComponent from "./Blob";
 
 // Define the Project type
 interface Project {
@@ -57,23 +56,7 @@ const Portfolio: React.FC = () => {
                     ))}
                 </div>
             </div>
-            {/* Blob Component */}
-            <BlobComponent />
-
-            {/* Blob Animation Styles */}
-            <style jsx>{`
-                    @keyframes blob-animation {
-                      0% {
-                        transform: scale(1) translate(0, 0);
-                      }
-                      50% {
-                        transform: scale(1.5) translate(10px, 10px);
-                      }
-                      100% {
-                        transform: scale(1) translate(0, 0);
-                      }
-                    }
-                  `}</style>
+         
         </section>
     );
 };
