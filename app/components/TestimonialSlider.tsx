@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/data/data";
+import DottedRectangle from "./DottedRectangle";
 
 
 
@@ -53,6 +54,12 @@ const InfiniteTestimonialSlider = () => {
 
     return (
         <section className="relative py-4 overflow-hidden">
+            <div className="absolute -z-10 md:top-16 md:left-[10px] -top-10 -left-32 rotate-12">
+                <DottedRectangle rows={7} cols={10} width="250px" height="120px" gap="6px" color="#0B50FF" />
+            </div>
+            <div className="absolute -z-10 md:-bottom-2 md:right-20 -bottom-10 -right-32 rotate-12">
+                <DottedRectangle rows={7} cols={10} width="250px" height="120px" gap="6px" color="#0B50FF" />
+            </div>
             <div className="container mx-auto px-6">
                 {/* Section Heading */}
                 <motion.h1
@@ -91,7 +98,7 @@ const InfiniteTestimonialSlider = () => {
                         {duplicatedTestimonials.map((testimonial, index) => (
                             <motion.div
                                 key={index}
-                                className="flex-shrink-0 w-full sm:w-64 md:w-80 lg:w-96 p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all hover:shadow-xl"
+                                className="flex-shrink-0 w-full sm:w-64 md:w-80 lg:w-96 p-6 sm:p-8 shadow-[#0000000D] drop-shadow-lg bg-white dark:bg-[#0B0F15] border-[1px] dark:border-[#1a1b1f] rounded-xl shadow-lg transition-all hover:shadow-xl"
                             >
                                 {/* User Avatar */}
                                 <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-4 border-slate-500 mb-4 sm:mb-6">

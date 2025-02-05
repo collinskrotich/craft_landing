@@ -51,10 +51,19 @@ const Services = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-lg sm:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r dark:from-slate-400 dark:to-slate-600 from-slate-700 to-slate-900 mb-12"
+                    className="text-lg sm:text-xl font-semibold text-[#377DFF] mb-12"
                 >
                     Our services
                 </motion.h1>
+                <motion.h2
+                    initial={{ opacity: 0, y: -50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="text-3xl md:text-5xl sm:text-4xl font-extrabold dark:text-[#E2E2E2] text-[#1D1D1D] mb-4"
+                >
+                    Perfect and Fast Movement
+                </motion.h2>
 
                 {/* Description */}
                 <motion.p
@@ -63,7 +72,7 @@ const Services = () => {
                     variants={fadeInLeft}
                     transition={{ delay: 0.2 }}
                     viewport={{ amount: 0.5 }}
-                    className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6"
+                    className="text-lg sm:text-xl text-[#464646] dark:text-[#E2E2E2] mb-6"
                 >
                     We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business.
                 </motion.p>
@@ -75,13 +84,13 @@ const Services = () => {
                     variants={fadeInLeft}
                     transition={{ delay: 0.6 }}
                     viewport={{ amount: 0.5 }}
-                    className="flex flex-col md:flex-row items-center gap-4"
+                    className="flex flex-col md:flex-row items-center gap-4 justify-end"
                 >
                     <a
                         href="#services"
-                        className="relative px-6 py-2 cursor-pointer text-white bg-gradient-to-r from-blue-600 to-blue-600 rounded-full font-semibold shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
+                        className="relative  px-6 py-2 cursor-pointer dark:text-[#E2E2E2] text-[#377DFF] font-semibold drop-shadow-lg transition-transform hover:scale-105 hover:drop-shadow-xl"
                     >
-                        Explore Our Services
+                        Read More &rarr;
                     </a>
                 </motion.div>
             </div>
@@ -94,7 +103,7 @@ const Services = () => {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.2 }}
-                        className="bg-slate-300 dark:bg-gray-800 max-w-80 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        className="bg-white dark:bg-[#0B0F15] border-[#0000001A] max-w-80 p-8 rounded-lg shadow-lg hover:shadow-xl dark:border-[#FFFFFF1A] shadow-[#0000001A] border-[1px] transition-shadow duration-300"
                     >
                         <div className="text-center">
                             {/* Icon */}
@@ -114,7 +123,7 @@ const Services = () => {
                 ))}
             </div>
 
-          
+
         </section>
     );
 };

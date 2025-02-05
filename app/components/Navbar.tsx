@@ -68,7 +68,7 @@ const Navbar = () => {
                         smooth={true}
                         duration={800}
                         offset={-80}
-                        className="cursor-pointer bg-transparent border-[1px] dark:border-[#E2E2E2] border-[#377DFF] text-[#377DFF] dark:text-[#E2E2E2] px-4 py-2 rounded-full hover:bg-[#E2E2E2] hover:text-black transition-colors ease-in-out duration-200"
+                        className="cursor-pointer bg-transparent border-[1px] dark:border-[#E2E2E2] border-[#377DFF] text-[#377DFF] dark:text-[#E2E2E2] px-4 py-2 rounded-full dark:hover:bg-[#E2E2E2] dark:hover:text-black hover:bg-[#377DFF] hover:text-white transition-colors ease-in-out duration-200"
                     >
                         Contact Us
                     </ScrollLink>

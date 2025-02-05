@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { projectsData } from "@/data/data";
 import Image from "next/image";
+import DottedRectangle from "./DottedRectangle";
 
 // Define the Project type
 interface Project {
@@ -20,6 +21,9 @@ interface ProjectCardProps {
 const Portfolio: React.FC = () => {
     return (
         <section id="portfolio" className="relative py-20 overflow-hidden">
+            <div className="absolute -z-10 md:top-36 md:right-[10px] top-0 -right-32 rotate-12">
+                <DottedRectangle rows={10} cols={12} width="250px" height="120px" gap="6px" color="#EC1AFF" />
+            </div>
             <div className="container mx-auto px-6">
                 {/* Section Heading */}
                 <motion.h1
@@ -28,7 +32,7 @@ const Portfolio: React.FC = () => {
                     transition={{ duration: 1.5, ease: "easeOut" }} // Slower transition
                     viewport={{ once: true }}
                     whileHover={{ y: 0 }} // Stops sliding on hover
-                    className="text-lg sm:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900 dark:from-slate-200 dark:to-slate-400 mb-12 text-center"
+                    className="text-lg sm:text-xl font-semibold dark:text-[#E2E2E2] text-[#377DFF] mb-12 text-center"
                 >
                     Our Portfolio
                 </motion.h1>
@@ -41,10 +45,10 @@ const Portfolio: React.FC = () => {
                     whileHover={{ y: 0 }} // Stops on hover
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-400 dark:to-slate-600">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1D1D1D] dark:text-[#E2E2E2]">
                         Creative & Modern Solutions
                     </h2>
-                    <p className="mt-4 text-lg sm:text-xl md:max-w-4xl mx-auto text-gray-600 dark:text-gray-400">
+                    <p className="mt-4 text-lg sm:text-xl md:max-w-4xl mx-auto text-[#464646] dark:text-[#E2E2E2]">
                         Explore our latest projects, crafted with innovation and precision to bring ideas to life.
                     </p>
                 </motion.div>
@@ -56,7 +60,7 @@ const Portfolio: React.FC = () => {
                     ))}
                 </div>
             </div>
-         
+
         </section>
     );
 };
