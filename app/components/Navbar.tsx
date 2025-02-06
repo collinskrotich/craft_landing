@@ -75,13 +75,29 @@ const Navbar = () => {
 
                     {/* Theme Toggle */}
                     {mounted && (
-                        <button
-                            className="p-2 rounded-full bg-gray-200 dark:bg-[#0B0F15] transition-all duration-200"
+                        <motion.button
+                            className="relative flex items-center justify-center p-2 w-12 h-12 rounded-full bg-gray-200 dark:bg-[#0B0F15] transition-all duration-300 shadow-md hover:scale-110"
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            initial={{ rotate: 0 }}
+                            animate={{ rotate: theme === "dark" ? 180 : 0 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                        </button>
+                            <motion.div
+                                key={theme}
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.5 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {theme === "dark" ? (
+                                    <Sun size={24} className="text-yellow-400 drop-shadow-md" />
+                                ) : (
+                                    <Moon size={24} className="text-blue-500 drop-shadow-md" />
+                                )}
+                            </motion.div>
+                        </motion.button>
                     )}
+
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -116,13 +132,29 @@ const Navbar = () => {
 
                         {/* Theme Toggle */}
                         {mounted && (
-                            <button
-                                className="p-3 rounded-full bg-gray-200 dark:bg-[#0f0f11] mt-2 transition-all duration-200"
+                            <motion.button
+                                className="relative flex items-center justify-center p-2 w-12 h-12 rounded-full bg-gray-200 dark:bg-[#0B0F15] transition-all duration-300 shadow-md hover:scale-110"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                initial={{ rotate: 0 }}
+                                animate={{ rotate: theme === "dark" ? 180 : 0 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
                             >
-                                {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
-                            </button>
+                                <motion.div
+                                    key={theme}
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.5 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    {theme === "dark" ? (
+                                        <Sun size={24} className="text-yellow-400 drop-shadow-md" />
+                                    ) : (
+                                        <Moon size={24} className="text-blue-500 drop-shadow-md" />
+                                    )}
+                                </motion.div>
+                            </motion.button>
                         )}
+
                     </motion.div>
                 )}
             </AnimatePresence>
