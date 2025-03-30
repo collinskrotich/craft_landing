@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "./providers";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { PostHogProvider } from "./ph-providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,11 +60,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-[#0B0F15] text-[#1D1D1D] dark:text-[#E2E2E2]`}
       >
+        <PostHogProvider>
         <Providers>
           <Navbar />
           {children}
           <Footer />
         </Providers>
+        </PostHogProvider>
       </body>
     </html>
   );

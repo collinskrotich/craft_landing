@@ -64,7 +64,7 @@ const Navbar = () => {
 
                     {/* Contact Us CTA */}
                     <ScrollLink
-                        to="contact"
+                        to="footer"
                         smooth={true}
                         duration={800}
                         offset={-80}
