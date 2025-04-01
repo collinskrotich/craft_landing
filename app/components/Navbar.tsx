@@ -7,12 +7,14 @@ import { Link as ScrollLink } from "react-scroll";
 import { X, Moon, Sun } from "lucide-react";
 import { RiMenu5Line } from "react-icons/ri";
 import Image from "next/image";
+import ContactModal from "./ContactModal";
 
 const Navbar = () => {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -38,7 +40,7 @@ const Navbar = () => {
                     <ScrollLink to="home" smooth={true} duration={800} offset={-80}>
                         {mounted && (
                             <Image
-                                src={theme === "dark" ? "/images/logo-dark.png" : "/images/logo-light.png"}
+                                src={theme === "dark" ? "/icons/logo-dark.png" : "/icons/logo-light.png"}
                                 alt="Logo"
                                 width={120}
                                 height={40}
@@ -63,15 +65,14 @@ const Navbar = () => {
                     ))}
 
                     {/* Contact Us CTA */}
-                    <ScrollLink
-                        to="footer"
-                        smooth={true}
-                        duration={800}
-                        offset={-80}
-                        className="cursor-pointer bg-transparent border-[1px] dark:border-[#E2E2E2] border-[#377DFF] text-[#377DFF] dark:text-[#E2E2E2] px-4 py-2 rounded-full dark:hover:bg-[#E2E2E2] dark:hover:text-black hover:bg-[#377DFF] hover:text-white transition-colors ease-in-out duration-200"
+                    <button
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                        onClick={() => setModalOpen(true)}
                     >
                         Contact Us
-                    </ScrollLink>
+                    </button>
+                    {/* Modal */}
+                    <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
 
                     {/* Theme Toggle */}
                     {mounted && (

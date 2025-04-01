@@ -1,12 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import HeroTextCounter from "./HeroCounter";
 import DottedRectangle from "./DottedRectangle";
+import { useState } from "react";
+import ContactModal from "./ContactModal";
 
 const Hero = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+      setIsModalOpen(true); // Open the modal when the button is clicked
+    };
     return (
         <section
             className="relative flex flex-col items-center justify-center gap-6 min-h-screen px-4 sm:px-6 py-20 sm:py-24 md:py-32 overflow-hidden"
@@ -39,11 +45,18 @@ const Hero = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <Link href="#contact">
-                        <button className="bg-[#377DFF] dark:bg-[#E2E2E2] dark:text-[#0E0E0E] shadow-lg transition-colors duration-300 px-6 sm:px-8 py-2 sm:py-3 rounded-full text-white font-bold text-sm sm:text-base">
-                            Start Project
-                        </button>
-                    </Link>
+                    <>
+                        {/* Start Project Button */}
+                            <button
+                                onClick={handleOpenModal} // Open modal on button click
+                                className="bg-[#377DFF] dark:bg-[#E2E2E2] dark:text-[#0E0E0E] shadow-lg transition-colors duration-300 px-6 sm:px-8 py-2 sm:py-3 rounded-full text-white font-bold text-sm sm:text-base"
+                            >
+                                Start Project
+                            </button>
+
+                        {/* Contact Modal */}
+                        <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                    </>
                 </motion.div>
             </motion.div>
 

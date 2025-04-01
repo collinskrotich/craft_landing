@@ -26,7 +26,7 @@ const Footer = () => {
                         <Link href={"/"}>
                             {mounted && (
                                 <Image
-                                    src={theme === "dark" ? "/images/logo-dark.png" : "/images/logo-dark.png"}
+                                    src={theme === "dark" ? "/icons/logo-dark.png" : "/icons/logo-dark.png"}
                                     alt="Logo"
                                     width={180}
                                     height={60}
