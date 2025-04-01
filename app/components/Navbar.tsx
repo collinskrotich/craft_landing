@@ -117,7 +117,7 @@ const Navbar = () => {
                         transition={{ duration: 0.3 }}
                         className="absolute top-[130px] left-0 w-full bg-white dark:bg-[#0B0F15] backdrop-blur-lg p-5 md:hidden flex flex-col gap-4 items-center"
                     >
-                        {["Home", "About", "Services", "Projects", "Contact"].map((link) => (
+                        {["Home", "About", "Services", "Projects"].map((link) => (
                             <ScrollLink
                                 key={link}
                                 to={link.toLowerCase()}
