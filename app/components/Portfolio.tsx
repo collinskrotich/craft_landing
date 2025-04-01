@@ -20,7 +20,7 @@ interface ProjectCardProps {
 
 const Portfolio: React.FC = () => {
     return (
-        <section id="portfolio" className="relative py-20 overflow-hidden">
+        <section id="projects" className="relative py-20 overflow-hidden">
             <div className="absolute -z-10 md:top-36 md:right-[10px] top-0 -right-32 rotate-12">
                 <DottedRectangle rows={10} cols={12} width="250px" height="120px" gap="6px" color="#EC1AFF" />
             </div>

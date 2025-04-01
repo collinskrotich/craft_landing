@@ -17,7 +17,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className="bg-[#383638] text-[#E2E2E2]  py-4 overflow-hidden">
+        <footer className="bg-gray-900 text-[#E2E2E2]  py-4 overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-left">
 
@@ -92,12 +92,12 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 className="relative group hover:text-white transition duration-300"
                             >
-                                <div className="p-3 bg-[#E2E2E2] text-[#383638] rounded-full hover:bg-[#c4c3c3] hover:text-[#242224] transition-transform transform hover:scale-110 duration-300">
+                                <div className="p-3 bg-[#E2E2E2] text-gray-900 rounded-full hover:bg-[#c4c3c3] hover:text-[#242224] transition-transform transform hover:scale-110 duration-300">
                                     <Icon className="text-2xl" />
                                 </div>
 
                                 {/* Tooltip with Animation */}
-                                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#383638] text-[#E2E2E2] text-xs py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">
+                                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-[#E2E2E2] text-xs py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">
                                     {handle}
                                 </span>
                             </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
 
                 {/* Copyright Section */}
                 <div className="border-t border-gray-700 mt-6 pt-2 text-center">
-                    <p className="text-gray-500">
+                    <p className="text-gray-300">
                         &copy; {new Date().getFullYear()} CraftDuka Digital. All rights reserved.
                     </p>
                 </div>

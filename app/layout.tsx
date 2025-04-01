@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: "https://craftduka.com",
     images: [
       {
-        url: "/images/logo.jpeg",
+        url: "/icons/logo.jpeg",
         width: 1200,
         height: 630,
         alt: "CraftDuka Digital",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/images/logo.jpeg",
+    icon: "/icons/logo.jpeg",
   },
   metadataBase: new URL("https://craftduka.com"),
   alternates: {
